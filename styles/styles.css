@@ -40,10 +40,9 @@ aside {
     height: auto;
 }
 
-aside img {
-    width: 100%;
+main img {
+    width: 150px;
     height: auto;
-    border-radius: 10px;
 }
 
 p {padding: 0;}
