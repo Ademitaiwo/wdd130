@@ -26,7 +26,7 @@ p{
 }
 
 aside{
-    width: 20rem;
+    /* width: 20rem; */
     margin: 1rem;
     border: 1px solid rgb(0 0 0 / 0.2);
     padding: 1rem;
@@ -40,12 +40,19 @@ aside {
     height: auto;
 }
 
-main img {
-    width: 150px;
+aside img {
+    width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
 p {padding: 0;}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
 
 footer {
     margin-top: 15px;
