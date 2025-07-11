@@ -9,14 +9,6 @@ nav a {
     padding: 20px;
 }
 
-main {
-    max-width: 8px;
-    margin: 0 auto;
-    padding: 1rem;
-}
-
-
-
 h1{
     color: darkblue;
 }
@@ -43,7 +35,7 @@ aside{
     text-align: center;
 }
 
-aside {
+aside img{
     width: 200px;
     height: auto;
 }
