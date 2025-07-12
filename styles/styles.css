@@ -1,5 +1,5 @@
 nav{
-    background-color: rgb(41, 41, 138);
+    background-color: rgb(72, 72, 170);
     padding: 10px;
 }
 
@@ -44,12 +44,6 @@ main img {
     width: 150px;
     height: auto;
 }
-
-/* main {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-} */
 
 
 p {padding: 0;}
