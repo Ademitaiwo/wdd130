@@ -1,3 +1,7 @@
+main {
+     max-width: 100%;   
+}
+
 nav{
     background-color: rgb(72, 72, 170);
     padding: 10px;
@@ -43,7 +47,7 @@ aside {
 main img {
     width: 150px;
     height: auto;
-    max-width: 200px;
+
 }
 
 
