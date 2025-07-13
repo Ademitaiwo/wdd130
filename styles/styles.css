@@ -44,6 +44,11 @@ aside {
     height: auto;
 }
 
+
+aside img{
+    height: auto;
+}
+
 main img {
     width: 150px;
     height: auto;
