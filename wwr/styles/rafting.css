@@ -7,13 +7,7 @@
   --body-font: "Lato", sans-serif;
 }
 
-
-header {
-    background-color: var(--primary-color);
-    color: var(--accent2-color);
-  }
-
-  * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,6 +16,11 @@ header {
 body {
   font-family: var(--body-font);
   color: var(--accent1-color);
+}
+
+header {
+  background-color: var(--primary-color);
+  color: var(--accent2-color);
 }
 
 header, main, footer {
@@ -40,7 +39,7 @@ nav, p, section, article {
 }
 
 .socialmedia a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .hero {
@@ -48,12 +47,12 @@ nav, p, section, article {
 }
 
 .hero img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-  h1 {
+h1 {
   position: absolute;
   top: 20px;
   width: 100%;
@@ -61,10 +60,17 @@ nav, p, section, article {
   text-align: center;
   opacity: 0.7;
   background-color: var(--accent1-color);
-  color: #fff; /* white text - make sure there is enough contrast with the background-color */
+  color: #fff;
 }
 
 .hero article img {
   float: right;
   width: 125px;
+}
+
+/* ✅ ADDED: Social media icon styling to replace inline styles */
+.social-icon {
+  width: 100%;
+  max-width: 40px;
+  height: auto;
 }
