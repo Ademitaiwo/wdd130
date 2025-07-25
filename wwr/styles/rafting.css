@@ -22,7 +22,7 @@ body {
 header, main, footer {
   max-width: 840px;
   margin: 0 auto;
-  padding: 16px;
+  /* padding: 16px; */
 }
 
 header {
