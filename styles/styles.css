@@ -61,7 +61,7 @@ aside {
   padding: 1rem;
   background-color: var(--background-light);
   color: var(--text-color);
-  text-align: left;
+  text-align: center;
 }
 
 aside img {
@@ -70,7 +70,7 @@ aside img {
 }
 
 main img {
-  width: 150px;
+  width: 200px;
   height: auto;
 }
 
