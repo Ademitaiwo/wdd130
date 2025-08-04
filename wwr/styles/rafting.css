@@ -47,36 +47,18 @@ nav a {
     font-size: 4rem;
 }
 
-.intro {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
-/* .intro p {
-    flex: 1;
-    margin-right: 20px;
-}
-
-.intro img {
-    width: 300px;
-    height: auto;
-    border-radius: 8px;
-} */
 
 .history {
-    background-color: #091f0c;
-    color: #e9c46a;
+    background-color: #545353;
+    color: #ffffff;
     padding: 40px 20px;
     text-align: center;
 }
 
 .history h2 {
     font-family: 'Merriweather', serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
@@ -129,17 +111,25 @@ nav a {
 }
 
 footer {
-    background-color: #054e05;
+    background-color: #8f8f8f;
     color: #fff;
-    text-align: center;
-    padding: 1px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Align vertically */
+    gap: 20px;                /* Space between text and icons */
+    flex-wrap: wrap;          /* For responsiveness */
+}
+
+footer p {
+    margin: 0;
 }
 
 footer .socialmedia {
-    margin-top: 0px;
+    display: flex;
+    gap: 10px;   /* Space between icons */
 }
 
 footer .socialmedia a img {
     width: 24px;
-    margin: 0 10px;
 }
