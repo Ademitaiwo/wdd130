@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Rafting water website</title>
+    <title>Contact Us | Rafting Water Website</title>
     <meta name="description" content="Welcome to my very student contact us page">
     <meta name="author" content="Owolabi Taiwo - WDD130">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,69 +20,71 @@
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="trips.html">Trips</a>
-            <a class="current" href="contact.html">Contact Us </a>
+            <a class="current" href="contact.html">Contact Us</a>
         </nav>
     </header>
     <main>
         <h1>Contact Us</h1>
 
-        <h2>Send Us a message</h2>
-    <p>White Water Rafting</p>
-    <p>Phone: +2348026346625</p>
-    <!-- <p>Email:<a href="mailto:">sadf</a></p> -->
-    <p>Email: owolabitaiye80@gmail.com</p>
-    <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15853.179529319788!2d3.3085117314161687!3d6.610234459343371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b910aacda7119%3A0x18f5c0a67e99e05d!2sDopemu%2C%20Lagos%20102212%2C%20Lagos!5e0!3m2!1sen!2sng!4v1754284493244!5m2!1sen!2sng" 
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <section class="Team">
-        <h2>Join our Team</h2>
-        <figure>
-            <img src="contact-us-images/christopher-min.png" alt=" Ade - River Guide">
-            <figcaption>Ade - River Guide</figcaption>
-        </figure>
-        <figure>
-            <img src="contact-us-images/joy-min.jpg" alt="Owolabi - Safety Officer">
-            <figcaption>Joy - Support Officer</figcaption>
-        </figure>
-        <figure>
-            <img src="contact-us-images/owolabi-min.png" alt="Christopher - Customer Support">
-            <figcaption>Christopher - Safety Officer</figcaption>
-        </figure>
-    </section>
-    <form>
-        <fieldset>
-            <legend>Contact Form</legend>
-              <div class="form-item">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="fullname">
-             </div>
+        <h2>Send Us a Message</h2>
+        <p>White Water Rafting</p>
+        <p>Phone: +2348026346625</p>
+        <p>Email: owolabitaiye80@gmail.com</p>
 
-             <div class="form-item column">
-                <label for="email">Useremail:</label>
-                <input type="email" id="email" name="seremail">      
-             </div>
-            
-        
-              <h3>Purpose of Your Message:</h3>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15853.179529319788!2d3.3085117314161687!3d6.610234459343371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b910aacda7119%3A0x18f5c0a67e99e05d!2sDopemu%2C%20Lagos%20102212%2C%20Lagos!5e0!3m2!1sen!2sng!4v1754284493244!5m2!1sen!2sng" 
+            width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
 
-              <input type="radio" id="general" name="purpose" value="General Inquiry" required>
-              <label for="general">General Inquiry</label><br>
+        <section class="Team">
+            <h2>Join our Team</h2>
+            <figure>
+                <img src="contact-us-images/christopher-min.png" alt="Ade - River Guide">
+                <figcaption>Ade - River Guide</figcaption>
+            </figure>
+            <figure>
+                <img src="contact-us-images/joy-min.jpg" alt="Joy - Support Officer">
+                <figcaption>Joy - Support Officer</figcaption>
+            </figure>
+            <figure>
+                <img src="contact-us-images/owolabi-min.png" alt="Christopher - Safety Officer">
+                <figcaption>Christopher - Safety Officer</figcaption>
+            </figure>
+        </section>
 
-              <input type="radio" id="reservation" name="purpose" value="Reservation Question">
-              <label for="reservation">Reservation Question</label><br>
+        <form>
+            <fieldset>
+                <legend>Contact Form</legend>
+                
+                <div class="form-item">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="fullname" required>
+                </div>
 
-              <input type="radio" id="website" name="purpose" value="Website Suggestion">
-              <label for="website">Website Suggestion</label><br>
-        </fieldset>
-        <label for="message">Your Message:</label><br>
-        <textarea id="message" name="message" rows="5" required></textarea>
+                <div class="form-item column">
+                    <label for="email">Useremail:</label>
+                    <input type="email" id="email" name="seremail" required>
+                </div>
 
-        <input type="checkbox" id="subscribe" name="subscribe" value="yes"><br>
-        <label for="subscribe">Please subscribe me to the monthly newsletter</label><br>
+                <h3>Purpose of Your Message:</h3>
+                <input type="radio" id="general" name="purpose" value="General Inquiry" required>
+                <label for="general">General Inquiry</label><br>
 
-        <button type="submit">Send Message</button>
-    </form>        
-    </div>
+                <input type="radio" id="reservation" name="purpose" value="Reservation Question">
+                <label for="reservation">Reservation Question</label><br>
+
+                <input type="radio" id="website" name="purpose" value="Website Suggestion">
+                <label for="website">Website Suggestion</label><br>
+            </fieldset>
+
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br>
+
+            <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+            <label for="subscribe">Please subscribe me to the monthly newsletter</label><br>
+
+            <button type="submit">Send Message</button>
+        </form>        
     </main>
     <footer>
         <p>&copy;2025 | Whitewater Rafting Company | Owolabi Taiwo</p>
