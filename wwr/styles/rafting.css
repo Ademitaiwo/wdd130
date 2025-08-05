@@ -5,13 +5,13 @@ body {
     color: #1c1e1f;
 }
 
-/* header {
-    display: flex;
+header {
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
     background-color: #ffbb00c1;
     padding: 10px 20px;
-} */
+}
 
 header {
     margin: 1rem auto;
@@ -20,7 +20,6 @@ header {
     align-items: center;
     border-bottom: 1px solid #ccc;
     max-width: 1000px;
-    background-color:rgba(255, 213, 0, 0.701);
     justify-content: center;
 }
 
@@ -30,12 +29,38 @@ header .logo img {
     height: auto;
 }
 
-nav a {
+/* nav a {
     color: #fff;
     text-decoration: none;
     margin-left: 20px;
     font-weight: bold;
+} */
+
+/* nav a  {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    font-family: Arial, sans-serif;
+} */
+
+nav {
+    display: flex;
+    justify-content: space-around;  /* Or 'space-between' / 'center' */
+    align-items: center;
+    flex-wrap: wrap; /* Optional if you want it to wrap on smaller screens */
+    padding: 0;
 }
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
 
 .hero {
     position: relative;
