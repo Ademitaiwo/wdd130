@@ -5,13 +5,25 @@ body {
     color: #1c1e1f;
 }
 
-header {
+/* header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffbb00;
+    background-color: #ffbb00c1;
     padding: 10px 20px;
+} */
+
+header {
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    max-width: 1000px;
+    background-color:rgba(255, 213, 0, 0.701);
+    justify-content: center;
 }
+
 
 header .logo img {
     width: 50px;
@@ -134,9 +146,18 @@ h1 {
 }
 
 h2 {
-    color: #00695c;
-    margin-top: 30px;
+    display:grid
+    /* color: #00695c;
+    margin-top: 30px; */
 }
+
+h2{
+    color: #004d40;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
 
 /* Contact Info */
 p {
@@ -195,9 +216,9 @@ fieldset {
     margin-bottom: 20px;
 }
 
-legend {
+h3 {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-left: 10px;
     font-size: 1.2rem;
     color: #004d40;
 }
