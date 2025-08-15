@@ -218,6 +218,15 @@ h2{
     margin: 20px 0;
     padding: 10px;
 }
+
+.center ul{
+    text-align: center;
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+    font-weight: bolder;
+    font-size: larger;
+}
 /* Contact Info */
 p {
     margin: 5px 0;
