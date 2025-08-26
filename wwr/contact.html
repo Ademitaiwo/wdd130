@@ -13,15 +13,18 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="images/sadgsdnf.png" alt="Rafting Logo">
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="trips.html">Trips</a>
-            <a href="contact.html">Contact Us</a>
-        </nav>
+        <div class="header-container">
+              <img src="images/sadgsdnf.png" alt="Rafting Logo" class="logo">
+          </div>
+          <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="trips.html">Trips</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>  
     </header>
     <main>
     
@@ -46,8 +49,7 @@
             <h2>Join Our Professional Team Today!</h2>
         </div>
         <section class="Team">
-            <!-- <h2>Join our Team</h2> -->
-            <figure>
+            <figure >
                 <img src="contact-us-images/christopher-min.png" alt="Ade - River Guide">
                 <figcaption>Ade - River Guide</figcaption>
             </figure>
@@ -88,7 +90,7 @@
             </fieldset>
 
             <label for="message">Your Message:</label><br>
-            <textarea id="message" name="message" rows="5" required></textarea><br>
+            <textarea id="message" name="message" rows="3" required></textarea><br>
 
             <input type="checkbox" id="subscribe" name="subscribe" value="yes">
             <label for="subscribe">Please subscribe me to the monthly newsletter</label><br>
