@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us • Rapids & Ridges Rafting</title>
+  <meta name="description" content="Premium white water rafting trips, lessons, and adventures for every skill level." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>🌊r</text></svg>">
+  <link rel="stylesheet" href="styles.css" />
+  <style>body{font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif}</style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Go to Home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Rapids & Ridges</span>
+      </a>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+
+      <nav id="menu" aria-label="Primary">
+        <ul>
+          <li><a class="" href="index.html">Home</a></li>
+          <li><a class="" href="about.html">About Us</a></li>
+          <li><a class="" href="trips.html">Trips</a></li>
+          <li><a class="active" href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn brand" href="trips.html#book">Book a Trip</a>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    // Mobile nav handler
+    (function(){
+      var toggle = document.querySelector('.menu-toggle');
+      var menu = document.getElementById('menu');
+      if(toggle && menu){
+        toggle.addEventListener('click', function(){
+          var opened = menu.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
+
+  <main>
+    <section class="banner">
+      <div class="container">
+        <nav class="breadcrumbs">Home / Contact</nav>
+        <h1>Contact Us</h1>
+        <p class="muted">We’re here daily from 08:00–18:00 WAT. Reach out for bookings, groups, or media.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid" style="grid-template-columns: 1fr 1fr; align-items:start;">
+        <div class="card">
+          <h2>Send a message</h2>
+          <form action="#" method="post" class="stack">
+            <div>
+              <label for="cname">Full Name</label>
+              <input class="input" id="cname" name="name" required placeholder="Your full name"/>
+            </div>
+            <div>
+              <label for="cemail">Email</label>
+              <input class="input" id="cemail" type="email" name="email" required placeholder="you@example.com"/>
+            </div>
+            <div>
+              <label for="cmessage">Message</label>
+              <textarea class="input" id="cmessage" name="message" rows="5" required placeholder="Tell us what you need help with…"></textarea>
+            </div>
+            <button class="btn brand" type="submit">Send</button>
+          </form>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <h2>Visit us</h2>
+            <p class="muted">Lekki, Lagos, Nigeria</p>
+            <iframe title="Map" style="border:0; width:100%; height:260px; border-radius:12px" loading="lazy" allowfullscreen
+              src="https://www.google.com/maps?q=Lekki,+Lagos&output=embed"></iframe>
+          </div>
+          <div class="card">
+            <h2>Quick contacts</h2>
+            <p class="stack-sm">
+              📞 <a href="tel:+2348000000000">+234 800 000 0000</a><br/>
+              ✉️ <a href="mailto:hello@rapidsandridges.example">hello@rapidsandridges.example</a><br/>
+              Instagram: <a href="#">@rapidsandridges</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta">
+        <div class="grid" style="grid-template-columns: 2fr 1fr; align-items:center;">
+          <div>
+            <h3>Prefer WhatsApp?</h3>
+            <p class="muted">Message our concierge for quick answers, weekdays 08:00–18:00.</p>
+          </div>
+          <div class="center"><a class="btn" href="#">Chat on WhatsApp</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand"><span class="logo"></span><span>Rapids & Ridges</span></div>
+        <p class="muted">Africa’s favorite white water rafting outfitter. Safety-first, joy-forward adventures since 2010.</p>
+        <p class="muted">Open daily • 08:00–18:00 WAT</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="trips.html">Trips</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="trips.html#faq">FAQ</a></li>
+          <li><a href="about.html#safety">Safety</a></li>
+          <li><a href="about.html#team">Our Team</a></li>
+          <li><a href="trips.html#gear">What to Bring</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@rapidsandridges.example">hello@rapidsandridges.example</a></li>
+          <li><a href="tel:+2348000000000">+234 800 000 0000</a></li>
+          <li>Lekki, Lagos, Nigeria</li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© <span id="yr"></span> Rapids & Ridges. All rights reserved.</p>
+    <script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us • Rapids & Ridges Rafting</title>
+  <meta name="description" content="Premium white water rafting trips, lessons, and adventures for every skill level." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>🌊</text></svg>">
+  <link rel="stylesheet" href="styles.css" />
+  <style>body{font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif}</style>
+</head>
+<body>
+  <header>
+    <header class="header">
+    <div class="container nav">
+      <a class="brand" href="home.html" aria-label="Go to Home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Rapids & Ridges</span>
+      </a>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+
+      <nav id="menu" aria-label="Primary">
+        <ul>
+          <li><a class="" href="home.html">Home</a></li>
+          <li><a class="active" href="about.html">About Us</a></li>
+          <li><a class="" href="trips.html">Trips</a></li>
+          <li><a class="" href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn brand" href="trips.html#book">Book a Trip</a>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    // Mobile nav handler
+    (function(){
+      var toggle = document.querySelector('.menu-toggle');
+      var menu = document.getElementById('menu');
+      if(toggle && menu){
+        toggle.addEventListener('click', function(){
+          var opened = menu.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
+  </header>
+  <section class="banner">
+    <div class="container">
+      <nav class="breadcrumbs">Home / About US</nav>
+      <h1>We turn rivers into lifetime memorires.</h1>
+      <p class="muted">Founded in 2010 by expedition veterans, Rapids & Ridges has guided 50,000+ guests with a spotless safety record.</p>
+      <p>We scout every rapid, adapt routes to the season, and constantly train. Your job? Show up ready to smile.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container grid" style="grid-template-columns: 1.2fr 1fr; align-items: start; gap: 20px">
+      <div class="stack">
+          <h2>Our Story</h2>
+          <p>We started as three friends obsessed with river hydrology and the art of guiding. Today, we’re a 40‑person crew laser‑focused on safety, story, and service.</p>
+          <p>We scout every rapid, adapt routes to the season, and constantly train. Your job? Show up ready to smile.</p>
+          <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="card">
+              <h3>50k+</h3>
+              <p>Guests guided</p>
+            </div>
+            <div class="card">
+              <h3>4.9/5</h3>
+              <p>Average review</p>
+            </div>  
+            <div class="card">
+              <h3>100%</h3>
+              <p>Safety record</p>
+            </div>
+          </div>      
+      <div class="card">
+          <img src="images/rafting59_600.jpg" alt="Raft crew and guide smiling on shore" />
+      </div>
+    </div>
+  </section>
+</body>
+</html>

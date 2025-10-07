@@ -19,6 +19,8 @@
   --maxw: 1200px;
 }
 
+
+
 *{ box-sizing: border-box; }
 html{ scroll-behavior:smooth; }
 body{
@@ -218,6 +220,7 @@ nav a.active, nav a:hover{
   box-shadow: var(--shadow); 
   transition: transform .2s ease;
 }
+
 .card:hover{ transform: translateY(-4px); 
 }
 
@@ -280,7 +283,12 @@ nav a.active, nav a:hover{
   border: 1px solid rgba(255,255,255,.06); 
   padding: .9rem; 
   border-radius: 14px;
+  transition: transform .2s ease;
 }
+
+.feature:hover{ transform: translateY(-4px); 
+}
+
 
 .icon{
   width:42px; 
