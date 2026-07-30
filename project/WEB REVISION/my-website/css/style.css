@@ -1,0 +1,55 @@
+/* Basic page styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fb;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container and layout */
+body,
+html {
+    min-height: 100%;
+}
+
+h1 {
+    color: #1f3a6f;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+p {
+    max-width: 720px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+
+a {
+    display: inline-block;
+    margin: 1rem auto;
+    padding: 0.65rem 1.1rem;
+    text-decoration: none;
+    color: #fff;
+    background-color: #2466d6;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+    background-color: #1d52b3;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem auto;
+    border-radius: 12px;
+}
+
+body>* {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
