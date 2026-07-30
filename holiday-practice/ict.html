@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ICTSelfStudy — Dark Mode • Community for Serious ICT Learners</title>
+<meta name="description" content="ICTSelfStudy — structured self-study, peer code review, projects, and mentorship in a focused dark-mode interface." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  /* =========================
+     ICTSelfStudy — dark modern UI
+     Single-file, responsive, accessible
+     ========================= */
+
+  :root{
+    --bg:#0b0f14;
+    --panel:#0f1720;
+    --muted:#96a0b3;
+    --accent:#6ee7b7;       /* mint accent */
+    --accent-2:#7c5cff;     /* purple accent */
+    --glass: rgba(255,255,255,0.04);
+    --glass-2: rgba(255,255,255,0.02);
+    --card-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    --radius:14px;
+    --maxw:1200px;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --ease:cubic-bezier(.2,.9,.25,1);
+  }
+
+  * {box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:var(--ui);
+    background:
+      radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.06), transparent 6%),
+      radial-gradient(1000px 500px at 90% 90%, rgba(110,231,183,0.03), transparent 6%),
+      var(--bg);
+    color:#e6eef6;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+    padding: 28px;
+  }
+
+  /* Layout container */
+  .site {
+    max-width:var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap:28px;
+    align-items:start;
+  }
+
+  /* Sidebar navigation */
+  .sidebar {
+    position: sticky;
+    top:28px;
+    height:calc(100vh - 56px);
+    background:linear-gradient(180deg,var(--glass),var(--glass-2));
+    border-radius:var(--radius);
+    padding:20px;
+    box-shadow: var(--card-shadow);
+    border:1px solid rgba(255,255,255,0.03);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .brand {
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+  .logo {
+    width:48px;height:48px;border-radius:10px;
+    background:linear-gradient(135deg,var(--accent-2),var(--accent));
+    display:grid;place-items:center;font-weight:800;font-family:var(--mono);
+    box-shadow:0 6px 18px rgba(124,92,255,0.14);
+  }
+  .brand h1{font-size:1.05rem;margin:0;letter-spacing:0.2px}
+  .brand p{margin:0;font-size:0.78rem;color:var(--muted)}
+
+  nav.primary {
+    margin-top:14px;
+    display:flex;flex-direction:column;gap:6px;
+    flex:1;
+  }
+  nav.primary a {
+    display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;
+    color: #bcd3e9; text-decoration:none; font-weight:600;
+    transition: all 180ms var(--ease);
+  }
+  nav.primary a .icon { width:36px; text-align:center; color:var(--accent-2) }
+  nav.primary a:hover { transform:translateX(6px); color:white; background: rgba(255,255,255,0.02) }
+  nav.primary a[aria-current="page"]{ background:linear-gradient(90deg, rgba(124,92,255,0.08), rgba(110,231,183,0.02)); color:white; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.01) }
+
+  .sidebar .cta {
+    display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:auto;
+  }
+  .btn-ghost {
+    background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:8px;color:var(--accent);
+    cursor:pointer;font-weight:700;
+  }
+  .btn-cta {
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#061219;border:none;padding:10px 14px;border-radius:10px;font-weight:800;cursor:pointer;
+    box-shadow: 0 8px 30px rgba(124,92,255,0.12);
+  }
+
+  /* Main area */
+  main {
+    min-height: 80vh;
+  }
+
+  /* Hero (split) */
+  .hero {
+    display:grid;
+    grid-template-columns: 1fr 420px;
+    gap:20px;
+    align-items:center;
+    margin-bottom:20px;
+  }
+
+  .hero-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    padding:28px;border-radius:18px;border:1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 16px 40px rgba(2,6,23,0.6);
+    overflow:hidden;
+  }
+
+  .hero-left h2 {
+    margin:0 0 8px 0;font-size:1.9rem;letter-spacing:-0.6px;color: #eaf6f0;
+  }
+  .hero-left p { margin:0 0 18px;color:var(--muted);font-size:1rem;max-width:62ch }
+  .kpis { display:flex;gap:12px;margin-top:12px;flex-wrap:wrap }
+  .kpi { background:linear-gradient(90deg, rgba(110,231,183,0.04), rgba(124,92,255,0.03)); padding:10px 14px;border-radius:10px;font-weight:700;color:#e6f9f0;display:flex;gap:10px;align-items:center }
+  .kpi small { display:block;font-weight:400;color:var(--muted);font-size:0.78rem }
+
+  /* Right: animated device / code preview */
+  .hero-right {
+    display:grid;place-items:center;position:relative;
+  }
+  .device {
+    width:100%;max-width:420px;border-radius:14px;padding:18px;background:linear-gradient(180deg,#071018 0%, #0e1820 60%);border:1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 30px 70px rgba(2,6,23,0.6);
+    transform: translateY(0);
+    transition: transform 400ms var(--ease);
+  }
+  .device .top { display:flex;gap:8px;align-items:center;margin-bottom:10px }
+  .dot { width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,0.06);box-shadow:inset 0 -2px 6px rgba(0,0,0,0.6) }
+  .screen {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:10px;padding:12px;height:220px;overflow:hidden;position:relative;
+  }
+  pre.code {
+    font-family: var(--mono); font-size:12.5px; color:#bfeedd; line-height:1.35; margin:0; white-space:pre-wrap;
+    transform-origin: left top;
+    opacity:0.95;
+  }
+  .glow {
+    position:absolute;right:-60px;top:-40px;width:220px;height:220px;border-radius:50%;
+    background: radial-gradient(circle at 30% 30%, rgba(124,92,255,0.18), transparent 30%),
+                radial-gradient(circle at 70% 70%, rgba(110,231,183,0.12), transparent 30%);
+    filter: blur(18px);
+    pointer-events:none;
+    mix-blend-mode:screen;
+  }
+
+  /* sections */
+  .section {
+    display:grid;gap:18px;margin-bottom:18px;
+  }
+  .cards {
+    display:grid;grid-template-columns: repeat(auto-fit,minmax(240px,1fr));gap:16px;
+  }
+  .card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 30px rgba(2,6,23,0.5);
+    transition: transform 240ms var(--ease), box-shadow 240ms var(--ease);
+  }
+  .card:hover { transform: translateY(-8px); box-shadow: 0 22px 50px rgba(2,6,23,0.7) }
+
+  .card h3 { margin:0 0 6px 0;color:#e7f6f0 }
+  .card p { margin:0;color:var(--muted) }
+
+  /* curriculum interactive */
+  .curriculum .lesson {
+    display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid rgba(255,255,255,0.02);
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  }
+  .lesson .num { width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2)); display:grid;place-items:center;font-weight:800;color:#021217 }
+  .lesson .meta { flex:1 }
+  .lesson .meta h4 { margin:0 0 6px 0 }
+  .lesson .meta p { margin:0;color:var(--muted);font-size:0.95rem }
+  .lesson .meta .tags { margin-top:8px;display:flex;gap:8px;flex-wrap:wrap }
+  .tag { font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted) }
+
+  /* testimonial / quotes */
+  .quote { font-style:italic;color: #bcd8cf; padding:12px;border-left:3px solid rgba(110,231,183,0.12);border-radius:6px }
+
+  /* join modal */
+  .modal-backdrop {
+    position:fixed;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.75));display:none;align-items:center;justify-content:center;z-index:1200;
+  }
+  .modal {
+    width:100%;max-width:760px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:16px;padding:20px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 30px 70px rgba(2,6,23,0.8);
+  }
+  .modal h3{margin-top:0}
+  .form-grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px }
+  .form-row { margin-bottom:10px }
+  label { display:block;font-size:0.85rem;color:var(--muted);margin-bottom:6px }
+  input, textarea, select {
+    width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
+    background:transparent;color:inherit;font-size:0.95rem;
+  }
+  textarea { min-height:100px; resize:vertical }
+  .modal .actions { display:flex;gap:10px;justify-content:flex-end;margin-top:12px }
+  .small { font-size:0.82rem;color:var(--muted) }
+
+  /* footer */
+  footer { margin-top:26px;color:var(--muted);text-align:center;font-size:0.92rem }
+
+  /* reveal animations */
+  .reveal { opacity:0; transform: translateY(12px) scale(0.995); transition: all 560ms var(--ease) }
+  .reveal.show { opacity:1; transform: translateY(0) scale(1) }
+
+  /* responsive */
+  @media (max-width: 980px){
+    .site{grid-template-columns:1fr; padding:18px}
+    .sidebar{position:static;height:auto;display:flex;flex-direction:row;gap:8px;padding:10px;align-items:center}
+    nav.primary { display:flex; flex-direction:row; gap:6px; overflow:auto }
+    .hero { grid-template-columns:1fr; }
+    .device { max-width:100% }
+    .form-grid { grid-template-columns:1fr }
+  }
+
+  @media (max-width:600px){
+    body{padding:12px}
+    .hero-left h2{font-size:1.4rem}
+    .kpi{font-size:0.9rem}
+    .logo{width:40px;height:40px}
+  }
+
+  /* small helpers */
+  .muted { color:var(--muted) }
+  .align-center { display:flex;align-items:center;gap:8px }
+</style>
+</head>
+<body>
+  <div class="site" id="site">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Primary">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">IS</div>
+        <div>
+          <h1>ICTSelfStudy</h1>
+          <p class="muted">Serious, structured, community-first</p>
+        </div>
+      </div>
+
+      <nav class="primary" role="navigation" aria-label="Main">
+        <a href="#home" aria-current="page"><span class="icon"><i class="fa-solid fa-house-chimney"></i></span> Home</a>
+        <a href="#what"><span class="icon"><i class="fa-solid fa-list-check"></i></span> Offerings</a>
+        <a href="#how"><span class="icon"><i class="fa-solid fa-people-roof"></i></span> How it works</a>
+        <a href="#curriculum"><span class="icon"><i class="fa-solid fa-graduation-cap"></i></span> Curriculum</a>
+        <a href="#testimonials"><span class="icon"><i class="fa-solid fa-comment-dots"></i></span> Testimonials</a>
+        <a href="#join" id="openJoin"><span class="icon"><i class="fa-solid fa-paper-plane"></i></span> Apply to Join</a>
+      </nav>
+
+      <div class="cta">
+        <button class="btn-ghost" id="btnQuickFAQ"><i class="fa-regular fa-lightbulb"></i> Tips</button>
+        <button class="btn-cta" id="btnJoin">Join Now</button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+
+      <!-- HERO -->
+      <section id="home" class="hero reveal">
+        <div class="hero-card hero-left">
+          <h2>ICTSelfStudy — Projects, Peer Review & Mentorship.</h2>
+          <p>Structured pathways, weekly checkpoints, micro-projects and a supportive peer network to help you ship real skills — not certificates.</p>
+
+          <div class="kpis" aria-hidden="true">
+            <div class="kpi"><div><strong>+3,200</strong></div><small>Active learners</small></div>
+            <div class="kpi"><div><strong>120+</strong></div><small>Hands-on lessons</small></div>
+            <div class="kpi"><div><strong>Bi-weekly</strong></div><small>Live standups</small></div>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:12px">
+            <button class="btn-cta" id="heroJoin">Apply to Onboarding</button>
+            <button class="btn-ghost" id="heroExplore">Browse Curriculum</button>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="device" role="img" aria-label="Code preview">
+            <div class="top">
+              <div class="dot" title="window control"></div>
+              <div class="dot" style="background:rgba(255,255,255,0.05)"></div>
+              <div class="dot" style="background:rgba(255,255,255,0.03)"></div>
+            </div>
+            <div class="screen">
+              <div class="glow" aria-hidden="true"></div>
+              <pre class="code" id="codePreview">// Project: portfolio-carousel
+// Status: in progress
+const projects = [
+  { id: 1, title: "Portfolio UI", tech:["HTML","CSS","JS"] },
+  { id: 2, title: "Brand Site", tech:["React","Tailwind"] }
+];
+
+function nextProject(i){
+  const idx = (i + 1) % projects.length;
+  return projects[idx];
+}
+
+// Tip:
+// Keep small experiments daily — commit often.
+</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT WE OFFER -->
+      <section id="what" class="section reveal">
+        <h3 style="margin:0 0 6px 0;color:#e7f6f0">What you'll get</h3>
+        <p class="muted" style="margin:0 0 12px 0">A practical stack of tools, mentorship, and projects — designed for steady progress.</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Active Project Groups</h3>
+            <p>Small cohorts working on weekly micro-projects with peer code review and demos.</p>
+          </article>
+
+          <article class="card">
+            <h3>Roadmapped Lessons</h3>
+            <p>Lessons broken to short milestones: learn → practice → ship. Each lesson ends with a short deliverable.</p>
+          </article>
+
+          <article class="card">
+            <h3>Accountability Standups</h3>
+            <p>Bi-weekly calls to share progress and unblock one another. Templates available for status reports.</p>
+          </article>
+
+          <article class="card">
+            <h3>Mentor Office Hours</h3>
+            <p>Voluntary mentors host monthly drop-in hours for code review and career advice.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how" class="section reveal">
+        <h3 style="margin:0 0 6px 0;color:#e7f6f0">How it works</h3>
+        <p class="muted" style="margin:0 0 12px 0">We screen for commitment, onboard learners into focused groups, then scale to live project cohorts.</p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>1. Apply — Onboarding</h3>
+            <p>Basic application with goals and time availability. We match you to an onboarding cohort.</p>
+          </div>
+          <div class="card">
+            <h3>2. Learn & Build</h3>
+            <p>Follow lessons, complete worksheets and submit small projects for review.</p>
+          </div>
+          <div class="card">
+            <h3>3. Earn Access</h3>
+            <p>Consistent contributors get invited to main project groups and optional mentorship channels.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CURRICULUM (interactive) -->
+      <section id="curriculum" class="section reveal">
+        <h3 style="margin:0 0 6px 0;color:#e7f6f0">Curriculum snapshot</h3>
+        <p class="muted" style="margin:0 0 12px 0">Sample pathway you can start today — each lesson ~1–3 hours.</p>
+
+        <div class="card curriculum" id="curriculumList" aria-live="polite">
+          <div class="lesson" data-idx="1">
+            <div class="num">01</div>
+            <div class="meta">
+              <h4>HTML & Semantic Markup <span style="color:var(--muted);font-weight:600">• 2 lessons</span></h4>
+              <p>Create accessible, semantic pages; forms, ARIA basics, and real lab exercises.</p>
+              <div class="tags">
+                <span class="tag">#html</span><span class="tag">#accessibility</span><span class="tag">#projects</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lesson" data-idx="2">
+            <div class="num">02</div>
+            <div class="meta">
+              <h4>CSS Systems & Components</h4>
+              <p>Modern layout, responsive design, component patterns and utility-first thinking.</p>
+              <div class="tags">
+                <span class="tag">#css</span><span class="tag">#responsive</span><span class="tag">#design</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lesson" data-idx="3">
+            <div class="num">03</div>
+            <div class="meta">
+              <h4>JavaScript for Projects</h4>
+              <p>DOM, async, building mini tools, and testing patterns you can reuse in projects.</p>
+              <div class="tags">
+                <span class="tag">#js</span><span class="tag">#automation</span><span class="tag">#testing</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lesson" data-idx="4">
+            <div class="num">04</div>
+            <div class="meta">
+              <h4>DevOps Basics & Deployment</h4>
+              <p>Source control, CI basics, simple server deploys, and how to ship your projects live.</p>
+              <div class="tags">
+                <span class="tag">#git</span><span class="tag">#ci</span><span class="tag">#deploy</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lesson" data-idx="5">
+            <div class="num">05</div>
+            <div class="meta">
+              <h4>Capstone: Build & Present</h4>
+              <p>Work in pairs/small teams to build a real deliverable and present to the community.</p>
+              <div class="tags">
+                <span class="tag">#capstone</span><span class="tag">#presentation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials" class="section reveal">
+        <h3 style="margin:0 0 6px 0;color:#e7f6f0">What learners say</h3>
+        <p class="muted" style="margin:0 0 12px 0">Short quotes from our active members.</p>
+
+        <div class="cards">
+          <div class="card">
+            <div class="quote">"The cohort pushed me to complete projects. Mentors gave sharp feedback — I now freelance confidently."</div>
+            <div style="display:flex;gap:10px;align-items:center;margin-top:10px">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=64&auto=format&fit=crop" alt="" style="width:44px;height:44px;border-radius:999px;object-fit:cover;border:2px solid rgba(255,255,255,0.03)" />
+              <div>
+                <strong>Emmanuel J.</strong><div class="small muted">Software Developer</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="quote">"Practical, project-first lessons + active peer review — I shipped a portfolio in two months."</div>
+            <div style="display:flex;gap:10px;align-items:center;margin-top:10px">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=64&auto=format&fit=crop" alt="" style="width:44px;height:44px;border-radius:999px;object-fit:cover;border:2px solid rgba(255,255,255,0.03)" />
+              <div>
+                <strong>Tolu O.</strong><div class="small muted">IT Student</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOIN CTA -->
+      <section id="join" class="section reveal" aria-labelledby="joinHeading">
+        <h3 id="joinHeading" style="margin:0 0 6px 0;color:#e7f6f0">Ready to start?</h3>
+        <p class="muted" style="margin:0 0 12px 0">Apply to the onboarding cohort — we review every application and respond within 24 hours.</p>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn-cta" id="joinPrimary">Apply to Onboarding</button>
+          <button class="btn-ghost" id="downloadSyllabus">Download Syllabus (PDF)</button>
+        </div>
+      </section>
+
+      <footer>
+        <div class="muted">© <span id="yr">2025</span> ICTSelfStudy — Built for serious learners • Lagos-friendly hours</div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Modal: join form -->
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document" aria-labelledby="modalTitle">
+      <h3 id="modalTitle">Apply to ICTSelfStudy Onboarding</h3>
+      <p class="small muted">Complete this short application. Provide honest time commitment — we use it to place you in a cohort.</p>
+
+      <form id="applyForm" novalidate>
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="first">First name</label>
+            <input id="first" name="first" required>
+          </div>
+          <div class="form-row">
+            <label for="last">Last name</label>
+            <input id="last" name="last" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <div class="form-row">
+            <label for="phone">WhatsApp</label>
+            <input id="phone" name="phone" inputmode="tel" placeholder="+234..." required>
+          </div>
+          <div class="form-row" style="grid-column:1 / -1">
+            <label for="goals">What are your learning goals? (short)</label>
+            <textarea id="goals" name="goals" required></textarea>
+          </div>
+          <div class="form-row">
+            <label for="hours">Hours / week</label>
+            <select id="hours" required>
+              <option value="">Select</option>
+              <option>1-3</option>
+              <option>3-6</option>
+              <option>6-10</option>
+              <option>10+</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="level">Current level</label>
+            <select id="level" required>
+              <option value="">Select</option>
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top:14px">
+          <button type="button" class="btn-ghost" id="cancelModal">Cancel</button>
+          <button type="submit" class="btn-cta" id="submitApp">Submit Application</button>
+        </div>
+
+        <div id="formMessage" style="margin-top:12px;display:none" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+<script>
+  // ========== UI interactions ==========
+
+  // small util
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+  // reveal on scroll (IntersectionObserver)
+  const reveals = $$('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.12});
+  reveals.forEach(r => io.observe(r));
+
+  // modal open/close
+  const modal = $('#modal');
+  const openBtns = [$('#openJoin'), $('#btnJoin'), $('#heroJoin'), $('#joinPrimary'), $('#heroExplore')].filter(Boolean);
+  const cancelBtn = $('#cancelModal');
+  const form = $('#applyForm');
+  const formMessage = $('#formMessage');
+
+  function openModal(prefill = {}) {
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    // focus first input
+    setTimeout(() => $('#first').focus(), 100);
+    // optionally prefill
+    Object.entries(prefill).forEach(([k,v]) => {
+      const el = document.getElementById(k);
+      if(el) el.value = v;
+    });
+  }
+  function closeModal(){
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    formMessage.style.display = 'none';
+  }
+
+  openBtns.forEach(b => b.addEventListener('click', (e) => {
+    e.preventDefault();
+    // open modal; if clicking heroExplore, scroll to curriculum instead
+    if(e.target && e.target.id === 'heroExplore') {
+      document.getElementById('curriculum').scrollIntoView({behavior:'smooth', block:'start'});
+      return;
+    }
+    openModal();
+  }));
+
+  cancelBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (ev) => {
+    if(ev.target === modal) closeModal();
+  });
+  // close on ESC
+  window.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+
+  // form handling: client-side validation + simulated submit (no network)
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // simple validation
+    const required = ['first','last','email','phone','goals','hours','level'];
+    let ok = true;
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      if(!el || !el.value.trim()) { ok = false; el && el.setAttribute('aria-invalid','true'); }
+      else el && el.removeAttribute('aria-invalid');
+    });
+    if(!ok){
+      formMessage.style.display = 'block';
+      formMessage.innerHTML = '<div style="color:#ffb4b4">Please complete required fields.</div>';
+      return;
+    }
+
+    // simulate async submission & feedback
+    const submitBtn = $('#submitApp');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+    formMessage.style.display = 'block';
+    formMessage.innerHTML = '<div style="color:#bcd8cf">Sending your application — hold tight.</div>';
+
+    setTimeout(() => {
+      // simulate success
+      formMessage.innerHTML = '<div style="color:#a7f3d0">Application received — you will get a reply on WhatsApp within 24 hours.</div>';
+      submitBtn.textContent = 'Submitted';
+      // reset after short delay
+      setTimeout(() => {
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+        closeModal();
+      }, 1400);
+    }, 1100);
+  });
+
+  // Curriculum interactivity: click lesson to copy a short task into clipboard (example)
+  document.getElementById('curriculumList').addEventListener('click', function(e){
+    const lesson = e.target.closest('.lesson');
+    if(!lesson) return;
+    const idx = lesson.getAttribute('data-idx');
+    // small animation
+    lesson.animate([{transform:'scale(1)'},{transform:'scale(0.985)'},{transform:'scale(1)'}], {duration:260, easing:'ease-out'});
+    // copy a quick task to clipboard (simulated)
+    const titles = {
+      '1': 'Build a semantic homepage with a form and accessible labels.',
+      '2': 'Create a responsive component: card grid with CSS Grid.',
+      '3': 'Build a small app that fetches JSON and renders a todo list.',
+      '4': 'Set up a git repo and deploy a static site to a free host.',
+      '5': 'Group capstone: ship a project and present in 10 minutes.'
+    };
+    const text = titles[idx] || 'Start a small experiment today!';
+    navigator.clipboard?.writeText(text).then(() => {
+      const tip = document.createElement('div');
+      tip.textContent = 'Task copied to clipboard: ' + text;
+      tip.style.cssText = 'position:fixed;right:20px;bottom:20px;background:rgba(10,20,14,0.9);padding:10px;border-radius:8px;color:#cdebd6;box-shadow:0 8px 30px rgba(0,0,0,0.5);z-index:9999';
+      document.body.appendChild(tip);
+      setTimeout(()=> tip.remove(),1500);
+    }).catch(()=> {
+      // fallback
+      alert(text);
+    });
+  });
+
+  // set year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // small keyboard accessibility: focus first nav item with "g"
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'g' && !e.metaKey && !e.ctrlKey) {
+      e.preventDefault();
+      const firstNav = document.querySelector('nav.primary a');
+      firstNav && firstNav.focus();
+    }
+  });
+
+  // small dynamic code preview typing effect
+  const codeEl = document.getElementById('codePreview');
+  const start = codeEl.textContent;
+  codeEl.textContent = '';
+  let i=0;
+  function typeLoop(){
+    if(i < start.length){
+      codeEl.textContent += start[i++];
+      setTimeout(typeLoop, 6 + Math.random()*10);
+    } else {
+      // subtle repeat: clear and retype after pause
+      setTimeout(()=> { codeEl.textContent=''; i=0; setTimeout(typeLoop,600) }, 2200);
+    }
+  }
+  setTimeout(typeLoop, 400);
+
+  // allow "Download Syllabus" to generate a short text file (client-side)
+  $('#downloadSyllabus').addEventListener('click', function(){
+    const syllabus = `ICTSelfStudy syllabus snapshot\n\n1) HTML & Accessibility\n2) CSS Systems\n3) JavaScript for Projects\n4) DevOps Basics\n5) Capstone\n\nVisit ICTSelfStudy to apply.`;
+    const blob = new Blob([syllabus], {type:'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'ICTSelfStudy-syllabus.txt'; document.body.appendChild(a);
+    a.click(); a.remove(); URL.revokeObjectURL(url);
+  });
+
+  // small hint tip button
+  $('#btnQuickFAQ').addEventListener('click', () => {
+    const msg = 'TIP: commit a small experiment daily. Try 20–60 minutes daily rather than all weekend.';
+    alert(msg);
+  });
+
+</script>
+</body>
+</html>
